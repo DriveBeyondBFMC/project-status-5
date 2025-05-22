@@ -28,6 +28,6 @@
 ## 📝 Description
    Automatically compute a smooth, reliable heading for each 2D waypoint
 
-**MPC Controller**
+**Fitting Heading**
    - File: `PathGenerator.py`
    - Functionality: Generate headings of each point for PyClothoids by fitting 3 consecutive points onto an arc.
