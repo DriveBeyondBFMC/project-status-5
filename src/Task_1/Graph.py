@@ -260,6 +260,12 @@ class MapVisualizer:
             cv2.circle(self.img, (x,y), radius, color, cv2.FILLED)
         return self
 
+    def drawCheckpoints(self, graph: Grapher, checkpointIds: list, radius=20, color=(0,255,0)):
+        for nid in checkpointIds:
+            x,y = graph['node', nid].astype(np.int32)
+            cv2.circle(self.img, (x,y), radius, color, cv2.FILLED)
+        return self
+
     def resize(self, ratio: float, interpolation=cv2.INTER_AREA):
         new_w = int(self.w // ratio)
         new_h = int(self.h // ratio)
