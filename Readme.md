@@ -1,33 +1,33 @@
 
-# Task 1: Lane changing
+# Task 1: Map Visualization
 ## 📂 Project Directory Structure
 ```bash
-~/project-status-4/src/Task_1
-├── PathGenerator.py
-└── threadNucleoCmd.py
+~/project-status-5/src/Task_1
+├── loadGraph.py
+└── Graph.py
 ```
 
 ## 📝 Description
-   Focuses on the lane changing functionality for moving vehicle scenarios
+   Focuses on parsing a GraphML track, generating node‐based and clothoid paths, and visualizing them on an overhead map for lane‐changing scenarios.
 
-**Path and offset path generator**  
-   - File: `PathGenerator.py`
-   - Functionality: Parses the input nodes to build the primary trajectory while simultaneously generating an offset path for vehicle avoidance.
+**Graph Processing Module**  
+   - File: `Graph.py`
+   - Functionality: Load and normalize a GraphML track; build a KD-tree for nearest-node/edge lookups; draw nodes, directed (solid/dotted) edges, arrowed paths and clothoid splines onto an OpenCV image;
 
-**Nucleo command Module**
-   - File: `threadNucleoCmd.py`
-   - Functionality: Receives steering from camera, calculate steering from path following and fusing both input to a unified steering angle. Sending both velocity and steering to STM Nucleo
+**Graph Loader & Visualization**
+   - File: `loadGraph.py`
+   - Functionality: nstantiate Grapher on your .graphml; fit a smooth (clothoid) trajectory via PathHandler; overlay nodes, discrete path and clothoid on the track image; show interactively with OpenCV.
 
 
-# Task 2: New controller evaluation
+# Task 3: Auto heading calculation
 ## 📂 Project Directory Structure
 ```bash
-~/project-status-4/src/Task_2
-└── MPCControl.py
+~/project-status-5/src/Task_3
+└── PathGenerator.py
 ```
 ## 📝 Description
-   Evaluate stability of MPC controller for path following task
+   Automatically compute a smooth, reliable heading for each 2D waypoint
 
 **MPC Controller**
-   - File: `MPCControl.py`
-   - Functionality: Evaluate the performance of MPC controller on path following task.
+   - File: `PathGenerator.py`
+   - Functionality: Generate headings of each point for PyClothoids by fitting 3 consecutive points onto an arc.
